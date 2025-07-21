@@ -1,0 +1,500 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.phanThayChoMenu{
+    height: 120px;
+    width: 100%;
+    position: relative;
+}
+
+.header{
+    height: 120px;
+    /* background-image: linear-gradient(0,#D3413F,#e24f3a); */
+    background-color: #120414;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.header-navbar{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+
+.navbar-list__item{
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--white-color);
+    font-weight: 400;
+    position: relative;
+}
+
+.navbar-list__item + .navbar-list__item{
+    margin-left: 15px;
+    border-left: 2px solid whitesmoke;
+    padding-left: 10px;
+}
+.item-link{
+    text-decoration: none;
+    color: var(--white-color);
+    position: relative;
+}
+
+.navbar-list i{
+    background-color: white;
+    border-radius: 50%;
+    font-size: 13px;
+    padding: 4px 7px;
+    color: #120414;
+    margin-left: 8px;
+}
+
+.navbar-list> :hover {
+    /* opacity: 0.6; */
+    color: rgb(214, 207, 207);
+    cursor: pointer;
+}
+
+.navbar-list li>:hover {
+    /* opacity: 0.6; */
+    color: rgb(214, 207, 207);
+    cursor: pointer;
+}
+.QRCode{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    height: 250px;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 5px 8px gray;
+    display: none;
+    z-index: 5;
+}
+
+.QRCode::before{
+    content: "";
+    width: 185px;
+    height: 19px;
+    position: absolute;
+    top: -10px;
+}
+
+.QRCode img{
+    height: 180px;
+    margin-bottom: 5px;
+}
+
+.apps img{
+    height: 17px;
+    margin-left: 8px;
+    margin-top: 2px;
+}
+
+.navbar-list__item-hover:hover .QRCode{
+    display: block;
+    cursor: default;
+}
+
+.ThongBao{
+    position: absolute;
+    height: 170px;
+    right: -153px;
+    top: 100%;
+    background-color:  #F3D2D6;
+    box-shadow: 0 5px 8px gray;
+    width: auto;
+    margin-top: 10px;
+    display: none;
+    animation: thongbaoToDan ease-in 0.3s;
+    transform-origin: 70% top;
+    z-index: 5;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    will-change: transform;
+}
+
+@keyframes thongbaoToDan {
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.ThongBao::before{
+    content: "";
+    border-width: 10px 14px;
+    border-style: solid;
+    border-color: transparent transparent #F3D2D6 transparent;
+    top: -20px;
+    position: absolute;
+    right: 153px;
+}
+
+
+.ThongBao::after{
+    content: "";
+    width: 80px;
+    height: 20px;
+    top: -14px;
+    right: 132px;
+    position: absolute;
+}
+
+
+.ThongBao .headerOf_Notify{
+    padding: 10px;
+}
+
+.ThongBao .headerOf_Notify h3{
+    color: var(--text-color);
+    opacity: 40%;
+    font-size: 13px;
+}
+
+.ThongBao .tenMenu{
+    text-align: center;
+    display: flex;
+}
+
+.ThongBao .tenMenu li{
+    list-style-type: none;
+}
+
+.ThongBao .tenMenu img{
+    width: 120px;
+    height: 80px;
+    transition: transform ease-in 0.2s;
+    
+}
+
+.ThongBao .tenMenu a{
+    text-decoration: none;
+}
+
+.ThongBao .tenMenu h3{
+    color: #D3413F;
+}
+
+.tenMenu li a >img:hover{
+    transform: scale(1.2);
+}
+
+.item-link-hover:hover .ThongBao{
+    display: block;
+}
+
+/* Phần tìm kiếm */
+.PhanTimKiem{
+    height: 85px;
+    display: flex;
+    align-items: center;
+    margin: 0 65px;
+    padding-bottom: 28px;
+    padding-left: 20px;
+}
+
+.PhanTimKiem .logo{
+    margin-right: 9px;
+}
+
+.PhanTimKiem .logo img{
+    height: 44px;
+    margin-right: 10px;
+    margin-left: -17px;
+}
+
+.PhanTimKiem .timKiem{
+    flex: 1;
+    background-color: white;
+    height: 40px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.divTimKiem{
+    flex: 1;
+    position: relative;
+}
+
+.PhanTimKiem .timKiem .divTimKiem input{
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.lichSuTimKiem{
+    position: absolute;
+    width: 859px;
+    background-color: white;
+    box-shadow: 0 0px 5px gray;
+    top: 190%;
+    border-radius: 3px;
+    font-size: 13px;    
+    /* display: none; */
+    z-index: 4;
+    max-height: 350px;
+    overflow: auto;
+}
+
+.lichSuTimKiem .tieude{
+    opacity: 0.3;
+    font-weight: 200;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.lichSuTimKiem .noiDungTimKiem{
+    margin-top: 10px;
+    font-weight: 400;
+    line-height: 25px;
+    margin: 0px 0px 10px 10px;
+    display: flex;
+    z-index: 100;
+}
+.lichSuTimKiem .noiDungTimKiem img{
+    height: 50px;
+    margin-right: 20px;
+}
+
+.lichSuTimKiem .noiDungTimKiem:hover{
+    background-color: rgba(202, 187, 187, 0.291);
+    cursor: pointer;
+}
+
+.divTimKiemHang:focus ~ .lichSuTimKiem{
+    /* display: block; */
+}
+
+.PhanTimKiem .timKiem button{
+    height: 80%;
+    width: 60px;
+    border: 0;
+    overflow: visible;
+    background-color: #120414;
+    border-radius: 3px;
+    margin-right: 3px;
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    padding: 0px;
+}
+
+
+.PhanTimKiem .timKiem button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.PhanTimKiem .timKiem button:active{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.PhanTimKiem .timKiem button i{
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    bottom: 10px;
+    right: 22px;
+}
+
+.PhanTimKiem .gioHang{
+    position: relative;
+    margin-left: 74px;
+    margin-right: 49px;
+}
+
+.PhanTimKiem .gioHang i{
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+/* Số lượng trong giỏ hàng */
+.thongBaoSoLuong{
+    position: absolute;
+    padding: 2px 7px;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 12px;
+    color: #A02AF2;
+    border: 2px solid #A02AF2;
+    right: -12px;
+    top: -9px;
+    text-align: center;
+}
+
+.ThongBaoGioHang{
+    position: absolute;
+    height: auto;
+    right: -15px;
+    top: 100%;
+    background-color: white;
+    box-shadow: 0 2px 8px gray;
+    width: 390px;
+    margin-top: 10px;
+    display: none;
+    animation: thongbaoToDan ease-in 0.3s;
+    transform-origin: 90% top;
+    will-change: opacity,transform;
+    z-index: 5;
+}
+
+.gioHang:hover .ThongBaoGioHang {
+    display: block;
+}
+ 
+.ThongBaoGioHang .headerOf_Notify2{
+    padding: 10px;
+}
+
+.ThongBaoGioHang .headerOf_Notify2 h3{
+    color: var(--text-color);
+    opacity: 40%;
+    font-size: 13px;
+}
+
+.ThongBaoGioHang .sanPhamThongBao2{
+    height: 70px;
+    background-color:	white;
+    padding: 10px;
+}
+
+.ThongBaoGioHang .sanPhamThongBao2 .hinh2{
+    float: left;
+    width: 17%;
+    height: 100%;
+    
+}
+
+.ThongBaoGioHang .sanPhamThongBao2 .hinh2 img{
+    height: 50px;
+    width: 50px;
+    border: 0.2px solid rgba(55, 53, 53,0.3);
+}
+
+.ThongBaoGioHang .sanPhamThongBao2 .text2{
+    float: left;
+    width: 60%;
+    color: var(--text-color);
+}
+
+.ThongBaoGioHang .sanPhamThongBao2 .text2 h4{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.ThongBaoGioHang .sanPhamThongBao2 .gia{
+    float: left;
+    width: 23%;
+} 
+
+.ThongBaoGioHang .sanPhamThongBao2 .gia p{
+    font-size: 14px;
+    color: red;
+} 
+
+
+.ThongBaoGioHang .buttonXemALL2{
+    text-align: center;
+    background-color: #D3413F;
+    height: 40px;
+    padding-top: 5px;
+    transition: all ease 0.4s;
+}
+
+.ThongBaoGioHang .buttonXemALL2 a{
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 14px;
+}
+
+.ThongBaoGioHang::before{
+    content: "";
+    border-width: 20px 30px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    top: -30px;
+    position: absolute;
+    right: -3px;
+}
+
+.ThongBaoGioHang .buttonXemALL2:active{
+    background-color: #D69D52;
+}
+
+.sanPhamThongBao2:hover{
+    background-color: rgba(255, 166, 0, 0.26);
+    cursor: pointer;
+}
+
+.ThongBaoGioHang .buttonXemALL2:hover{
+    background-color: #D69D52;
+    cursor: pointer;
+}
+
+.grid{
+    width: 1300px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+:root{
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+}
+
+
+
+.grid__full-width{
+    width: 100%;
+}
+
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: -12px;
+    padding-right: -12px;
+}
+
+.grid__colum-2{
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 16.6667%;
+}
+
+
+.grid__colum-10{
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 83.3332%;
+}
+
+.canhGiua{
+    text-align: center;
+}
+
+.logoutBtn button{
+    font-size: 15px;
+    padding: 1px 12px;
+    border-radius: 5px;
+    background-color: rgb(133,81,228);
+}
