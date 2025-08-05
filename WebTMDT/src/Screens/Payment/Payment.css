@@ -1,21 +1,21 @@
-.divBorder{
+.divBorder {
     border: 1px solid #80808069;
     height: 50px;
     /* width: 85%; */
     padding: 11px 0px 0px 40px;
 }
 
-.thanhToan{
+.thanhToan {
     border-left: 1px solid #80808069;
     height: 100%;
 }
 
-.chiTietThanhToan1{
+.chiTietThanhToan1 {
     display: flex;
     justify-content: space-between;
 }
 
-.chiTietThanhToan i:hover{
+.chiTietThanhToan i:hover {
     cursor: pointer;
     opacity: 0.5;
 }
@@ -26,26 +26,26 @@
     margin-left: 20px;
 }
 
-.nameUser{
+.nameUser {
     position: absolute;
     left: 5%;
 }
 
-.btnTangSL ,
-.btnGiamSL{
+.btnTangSL,
+.btnGiamSL {
     border: none;
     width: 25px;
     height: 22px;
     line-height: 20px;
 }
 
-.btnTangGiamSL:active{
+.btnTangGiamSL:active {
     opacity: 0.3;
 }
 
 
 
-#btnDatHang{
+#btnDatHang {
     padding: 20px;
     line-height: 2px;
 }
@@ -59,18 +59,19 @@
 }
 
 .small-heading {
-  font-size: 0.9em;
-  font-weight: bold;
+    font-size: 0.9em;
+    /* font-weight: bold; */
 }
 
-.divRelative{
+.divRelative {
     position: relative;
 }
 
-.paymentConfirm{
+.paymentConfirm {
     display: flex;
     justify-content: space-between;
 }
+
 /* .paymentConfirm{
     position: absolute;
     background-color: black;

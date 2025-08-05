@@ -1,0 +1,97 @@
+/* Thiết bị nhỏ (mobile) */
+@media (max-width: 767px) {
+    .phanThayChoMenu {
+        display: none;
+    }
+
+    .locTimKiemSP {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .hinh {
+        width: 94vw;
+    }
+
+    .feedback .feed .binhluan {
+        margin-left: 30px;
+        margin-bottom: 19px;
+    }
+
+    .feedback {
+        height: 380px;
+    }
+
+    .goiYMon {
+        margin-left: 20px;
+    }
+
+    .namePayment {
+        font-size: 24px;
+    }
+
+    .thanhToan {
+        margin-top: 20px;
+    }
+
+    #btnDatHang {
+        font-size: 10px;
+    }
+
+    #giaVanChuyen {
+        font-size: 12px;
+        margin-left: 120px;
+    }
+
+    .font_12 {
+        font-size: 12px;
+    }
+
+    .tableResponsive {
+        max-width: 700px;
+        overflow-x: auto;
+    }
+
+    .status {
+        font-size: 15px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .phanThayChoMenu {
+        display: none;
+    }
+
+    .menu_tablet {
+        margin-left: 50px;
+    }
+
+    #giaVanChuyen {
+        margin-left: 90px;
+    }
+
+
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .menuMobile {
+        display: none;
+        background-color: black;
+    }
+
+    .thumbnail-list {
+        width: 511px;
+    }
+
+    .namePayment {
+        font-size: 3.5rem;
+    }
+
+    #giaVanChuyen {
+        margin-left: 100px;
+    }
+
+}

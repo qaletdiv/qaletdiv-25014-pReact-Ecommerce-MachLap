@@ -139,7 +139,7 @@ let products = [
         ]
     },
     {
-        id: "6", name: "Giày thể thao nam thoải mái sang trọng", price: 4000, img: "https://img.lazcdn.com/g/p/95a203d1ff6f3b1b42e994ebc9e1f34d.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: formatDay(), categoriesId: "5", brand: "Adidas"
+        id: "6", name: "Giày thể thao nam thoải mái sang trọng", price: 4000000, img: "https://img.lazcdn.com/g/p/95a203d1ff6f3b1b42e994ebc9e1f34d.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: formatDay(), categoriesId: "5", brand: "Adidas"
         , listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -149,7 +149,7 @@ let products = [
         listSize: [30, 31, 32, 33, 34, 35, 36]
     },
     {
-        id: "7", name: "Thùng sữa Vinamilk 48 hộp", price: 1500, img: "https://img.lazcdn.com/g/p/6b85bd8958903f2d9c035d032175d23b.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "07/06/2025", categoriesId: "8", brand: "Vinamilk"
+        id: "7", name: "Thùng sữa Vinamilk 48 hộp", price: 1500000, img: "https://img.lazcdn.com/g/p/6b85bd8958903f2d9c035d032175d23b.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "07/06/2025", categoriesId: "8", brand: "Vinamilk"
         , listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -187,7 +187,7 @@ const authenticateJWT = (req, res, next) => {
 };
 // API Xác thực
 app.post('/api/signup', (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, fullName } = req.body;
     if (!email || !password) {
         return res.status(400).json({ message: 'Email và password là bắt buộc' });
     }
@@ -197,8 +197,9 @@ app.post('/api/signup', (req, res) => {
     const newUser = {
         email,
         password,
+        fullName,
         id: Date.now().toString(),
-        cart : [],
+        cart: [],
         bill: []
     };
     users.push(newUser);
@@ -211,7 +212,7 @@ app.post('/api/login', (req, res) => {
     }
     const user = users.find((u) => u.email === email && u.password === password);
     if (!user) return res.status(401).json({ message: 'Thông tin đăng nhập sai' });
-    const token = jwt.sign({ email: user.email , id: user.id }, JWT_SECRET, { expiresIn: '3h' });
+    const token = jwt.sign({ email: user.email, id: user.id }, JWT_SECRET, { expiresIn: '3h' });
     res.json({ accessToken: token, user: { id: user.id, email: user.email } });
 });
 // API Lấy danh sách users (dùng cho dropdown price/assignedTo)
@@ -258,7 +259,7 @@ app.get('/api/products/:id', (req, res) => {
     else res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
 });
 app.post('/api/products', authenticateJWT, (req, res) => {
-    const { name , img , listImg , categoriesId , description , price , brand } = req.body;
+    const { name, img, listImg, categoriesId, description, price, brand } = req.body;
     if (!name) return res.status(400).json({ message: 'Tên sản phẩm là bắt buộc' });
     const newproduct = {
         id: Date.now().toString(),
@@ -373,7 +374,7 @@ app.delete("/api/cart/:id", authenticateJWT, (req, res) => {
     if (!user) {
         return res.status(404).json({ message: "Không tìm thấy User" });
     }
-   
+
     user.cart = user.cart.filter((item) => item.id !== id);
     res.status(204).send();
 });
@@ -412,7 +413,7 @@ app.get('/api/payment', authenticateJWT, (req, res) => {
 });
 
 app.post('/api/payment', authenticateJWT, (req, res) => {
-    const { name , phone , address , note , cart , totalPrice } = req.body;
+    const { name, phone, address, note, cart, totalPrice } = req.body;
 
 
     const user = users.find((u) => u.email === req.user.email);
@@ -426,10 +427,10 @@ app.post('/api/payment', authenticateJWT, (req, res) => {
         phone,
         address,
         note,
-        status : "dangVanChuyen",
+        status: "dangVanChuyen",
         cart,
         totalPrice,
-        createdAt : formatDay()
+        createdAt: formatDay()
     }
     user.bill.unshift(newBill);
     user.cart = [];

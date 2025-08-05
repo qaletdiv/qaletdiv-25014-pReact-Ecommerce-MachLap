@@ -1,4 +1,4 @@
-.slideshowTinTuc{
+.slideshowTinTuc {
     width: 100%;
     height: auto;
     border: none;
@@ -6,13 +6,13 @@
     text-align: center;
 }
 
-.slideshowTinTuc img{
+.slideshowTinTuc img {
     height: 290px;
     width: 100%;
     position: relative;
 }
 
-.slideshowTinTuc .overlay2{
+.slideshowTinTuc .overlay2 {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -20,7 +20,7 @@
     z-index: 1;
 }
 
-.slideshowTinTuc .content{
+.slideshowTinTuc .content {
     position: absolute;
     top: 108px;
     left: 0;
@@ -31,7 +31,7 @@
     line-height: 38px;
 }
 
-.slideshowTinTuc .content h2{
+.slideshowTinTuc .content h2 {
     font-size: 46px;
     color: white;
     margin-bottom: 15px;
@@ -39,12 +39,13 @@
     font-weight: bold;
 }
 
-@keyframes moDan2{
-    from{
+@keyframes moDan2 {
+    from {
         transform: translateX(2000px);
         opacity: 0;
     }
-    to{
+
+    to {
         opacity: 1;
         transform: translateX(0);
     }
@@ -52,26 +53,26 @@
 
 /* phần lọc ra sản phẩm */
 
-.sapXep{
+.sapXep {
     margin-top: 25px;
     font-weight: 100;
 }
 
-.sapXep input{
+.sapXep input {
     margin-right: 10px;
     font-weight: 100;
     margin-bottom: 12px;
 }
 
-.sapXep .sapXepChiTiet{
+.sapXep .sapXepChiTiet {
     font-weight: 100;
 }
 
-.sapXep ul li{
+.sapXep ul li {
     list-style-type: none;
 }
 
-.sapXep .size{
+.sapXep .size {
     width: 50px;
     height: 25px;
     margin-right: 10px;
@@ -86,18 +87,18 @@
     font-weight: 100;
 }
 
-.sapXep .size:hover{
+.sapXep .size:hover {
     border-color: #fe6b5e;
     color: #fe6b5e;
     transition: all 0.01s;
 }
 
-.danhSach{
+.danhSach {
     display: flex;
     flex-wrap: wrap;
 }
 
-.mauSac{
+.mauSac {
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -108,17 +109,17 @@
 
 /* Phần sản phẩm */
 
-.sanPham{
+.sanPham {
     margin-top: 30px;
     position: relative;
 }
 
-.sanPham img{
+.sanPham img {
     height: 263px;
     width: 100%;
 }
 
-.sanPham h2{
+.sanPham h2 {
     color: #adadad;
     font-size: 11px;
     letter-spacing: 2.5px;
@@ -127,52 +128,53 @@
     margin-bottom: 5px;
 }
 
-.sanPham a{
+.sanPham a {
     font-size: 14px;
-    font-weight: 100;
+    font-weight: 500;
     text-decoration: none;
     color: #333;
     margin: 5px 0px;
 }
 
-.sanPham a:hover{
+.sanPham a:hover {
     color: #fe6b5e;
 }
 
-.gia{
+.gia {
     display: flex;
     justify-content: space-between;
     font-size: 14px;
     margin-top: 3px;
 }
 
-.gia .giaCu{
+.gia .giaCu {
     text-decoration: line-through;
 }
 
-.gia .giaMoi{
+.gia .giaMoi {
     color: #fe6b5e;
+    font-size: 18px;
 }
 
-.overlay3{
+.overlay3 {
     width: 100%;
-    height: 74%;
+    height: 66%;
     background: linear-gradient(#3f3fdb51, #fe6b5e61);
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
 
-.sanPham:hover .overlay3{
+.sanPham:hover .overlay3 {
     opacity: 1;
 }
 
-.sanPham:hover .iconMuaHang{
+.sanPham:hover .iconMuaHang {
     opacity: 1;
     bottom: 60%;
 }
 
-.nutChuyenTrang{
+.nutChuyenTrang {
     display: flex;
     justify-content: center;
     margin-top: 30px;
@@ -180,7 +182,7 @@
 
 .nutChuyenTrang .so1,
 .nutChuyenTrang .so2,
-.nutChuyenTrang .iconChuyenTrang{
+.nutChuyenTrang .iconChuyenTrang {
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -189,19 +191,24 @@
     text-align: center;
 }
 
-.nutChuyenTrang .so1{
+.nutChuyenTrang .so1 {
     background-color: #3f3fdb;
     color: white;
 }
 
 .nutChuyenTrang .so2,
-.nutChuyenTrang .iconChuyenTrang{
+.nutChuyenTrang .iconChuyenTrang {
     background-color: #f3f5f7;
     color: #333;
 }
 
 .nutChuyenTrang .so2:hover,
-.nutChuyenTrang .iconChuyenTrang:hover{
+.nutChuyenTrang .iconChuyenTrang:hover {
     background-color: #3f3fdb;
     color: white;
+}
+
+.orderProduct {
+    width: 100%;
+    border-radius: 15px;
 }

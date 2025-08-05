@@ -1,30 +1,30 @@
-.dangNhap{
+.dangNhap {
     display: flex;
 }
 
-.dangNhap .phanHinhDangNhap img{
+.dangNhap .phanHinhDangNhap img {
     height: 604px;
     margin-left: 120px;
     margin-top: -5px;
     width: 510px;
 }
 
-.dangNhap .phanDangNhap{
+.dangNhap .phanDangNhap {
     margin-top: 30px;
 }
 
-.dangNhap .phanDangNhap h3{
+.dangNhap .phanDangNhap h3 {
     font-size: 26px;
     color: #D3413F;
     text-align: center;
     text-transform: uppercase;
 }
 
-.dangNhap .phanDangNhap .formDN{
+.dangNhap .phanDangNhap .formDN {
     position: relative;
 }
 
-.dangNhap .phanDangNhap .formDN input{
+.dangNhap .phanDangNhap .formDN input {
     height: 40px;
     border: none;
     border-bottom: 1px solid black;
@@ -33,7 +33,7 @@
     margin-top: 35px;
 }
 
-.dangNhap .phanDangNhap .formDN .label{
+.dangNhap .phanDangNhap .formDN .label {
     position: absolute;
     top: 22%;
     left: 0;
@@ -47,13 +47,13 @@
     top: -5px;
 } */
 
-input:focus ~ label,
-input:valid ~ label{
+input:focus~label,
+input:valid~label {
     transform: translateY(-160%);
     font-size: 10px;
 }
 
-.phanDangNhap button{
+.phanDangNhap button {
     border-radius: 40px;
     background-color: #D3413F;
     border: none;
@@ -62,48 +62,50 @@ input:valid ~ label{
     transition: all ease 0.3s;
     margin-top: 22px;
 }
-.phanDangNhap button:hover{
+
+.phanDangNhap button:hover {
     background-color: #D69D52;
 }
 
-.phanDangNhap .check{
+.phanDangNhap .check {
     font-size: 14px;
     margin-left: 6px;
     margin-top: 10px;
 }
-.phanDangNhap .nutDNFB{
+
+.phanDangNhap .nutDNFB {
     color: white;
     padding: 10px 92px;
     background-color: #3C5997;
 }
 
-.phanDangNhap .nutDNFB i{
+.phanDangNhap .nutDNFB i {
     margin-right: 8px;
 }
 
-.phanDangNhap .nutDNGG{
+.phanDangNhap .nutDNGG {
     color: white;
     padding: 10px 94px;
     background-color: rgb(49, 44, 44);
 }
 
-.phanDangNhap .nutDNGG i{
+.phanDangNhap .nutDNGG i {
     margin-right: 8px;
 }
 
-.dangNhap .phanDangNhap h5{
+.dangNhap .phanDangNhap h5 {
     margin-top: 25px;
     text-align: center;
     font-size: 15px;
 }
 
-.dangNhap .phanDangNhap a{
+.dangNhap .phanDangNhap a {
     padding-left: 5x;
     color: black;
     font-weight: bold;
 }
 
-.formDN i{
+.formDN i {
     margin-bottom: -5px;
     position: absolute;
     top: 15px;

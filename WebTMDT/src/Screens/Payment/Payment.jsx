@@ -8,11 +8,33 @@ import { Link, useNavigate } from 'react-router-dom';
 const Payment = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [errors, setErrors] = useState({});
     const SHIPPING_FEE = 5000;
     const [count, setCount] = useState(1);
     const [shipCost, setShipCost] = useState(false);
     const [payByWhat, setPayByWhat] = useState(false);
     let [data, setData] = useState({ name: '', phone: '', address: '', note: '' });
+
+    const validate = () => {
+        const newErrors = {};
+
+        if (!data.name.trim()) {
+            newErrors.name = 'Họ tên không được để trống';
+        }
+
+        if (!data.phone.trim()) {
+            newErrors.phone = 'Số điện thoại không được để trống';
+        }
+
+        if (!data.address.trim()) {
+            newErrors.address = 'Địa chỉ không được để trống';
+        }
+
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
 
     const handleChange = (e) => {
         let { name, value } = e.target;
@@ -53,22 +75,25 @@ const Payment = () => {
         dispatch(deleteCart(id));
     }
 
-    const handlePayment = () => {
-        if(data.name == "" || data.phone == "" || data.address == ""){
-            alert("Vui lòng điền đầy đủ thông tin !!!")
-            return;
+    const handlePayment = (e) => {
+        e.preventDefault();
+        // if (data.name == "" || data.phone == "" || data.address == "") {
+        //     alert("Vui lòng điền đầy đủ thông tin !!!")
+        //     return;
+        // }
+        if (validate()) {
+            dispatch(addBill({ name: data.name, phone: data.phone, address: data.address, note: data.note, cart: cart, totalPrice: payByWhat ? provisionalAmount + SHIPPING_FEE : 0 }))
+            navigate("/orders");
         }
-        dispatch(addBill({ name: data.name, phone: data.phone, address: data.address, note: data.note, cart: cart, totalPrice: payByWhat ? provisionalAmount + SHIPPING_FEE : 0 }))
-        navigate("/orders");
     }
 
     return (
         <div>
             <div className='divRelative'>
-                <div className="container-fluid bg-dark bg-img p-5 mb-5">
+                <div className="container-fluid bg-dark bg-img p-5">
                     <div className="row">
                         <div className="col-12 text-center">
-                            <h1 className="display-4 text-uppercase text-white">Trang Thanh Toán</h1>
+                            <h1 className="namePayment text-uppercase text-white">Trang Thanh Toán</h1>
                         </div>
                     </div>
                 </div>
@@ -76,9 +101,9 @@ const Payment = () => {
                 {/* Products Start */}
                 <div className="container-fluid about py-5">
                     <div className="container">
-                        <form className="was-validated">
+                        <form >
                             <div className="row">
-                                <div className="col-lg-4 col-md-4">
+                                <div className="col-lg-4 col-md-6">
 
                                     {/* <div className="mb-3 mt-3">
                                         <label htmlFor="email" className="form-label">Email:</label>
@@ -86,17 +111,19 @@ const Payment = () => {
                                     </div> */}
                                     <div className="mb-3">
                                         <label htmlFor="pwd" className="form-label">Họ Tên:</label>
-                                        <input type="text" value={data.name} onChange={handleChange} required className="form-control" id="name" placeholder="Enter name" name="name" />
+                                        <input type="text" value={data.name} onChange={handleChange} className="form-control" id="name" placeholder="Enter name" name="name" />
                                         <div className="valid-feedback" />
-                                        <div className="invalid-feedback">Vui lòng nhập họ tên</div>
+                                        <p style={{ color: 'red' }}>{errors.name}</p>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="pwd" className="form-label">Số điện thoại:</label>
-                                        <input type="number" value={data.phone} onChange={handleChange} required className="form-control" id="phone" placeholder="Enter phone number" name="phone" />
+                                        <input type="number" value={data.phone} onChange={handleChange} className="form-control" id="phone" placeholder="Enter phone number" name="phone" />
+                                        <p style={{ color: 'red' }}>{errors.phone}</p>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="pwd" className="form-label">Địa chỉ:</label>
-                                        <input type="text" value={data.address} onChange={handleChange} required className="form-control" id="address" placeholder="Enter address" name="address" />
+                                        <input type="text" value={data.address} onChange={handleChange} className="form-control" id="address" placeholder="Enter address" name="address" />
+                                        <p style={{ color: 'red' }}>{errors.address}</p>
                                     </div>
                                     <label htmlFor="comment">Ghi chú:</label>
                                     <textarea onChange={handleChange} value={data.note} className="form-control" rows={5} id="comment" name="note" defaultValue={""} />
@@ -104,12 +131,12 @@ const Payment = () => {
 
 
                                 </div>
-                                <div className="col-lg-4 col-md-4">
+                                <div className="col-lg-4 col-md-6">
                                     <label htmlFor="comment" className="mt-3">Vận chuyển:</label>
-                                    <div className="form-check mt-2 divBorder">
+                                    <div className="font_12 form-check mt-2 divBorder">
                                         <input onChange={(e) => { setShipCost(e.target.checked) }} type="radio" className="form-check-input" id="radio1" name="optradio1" defaultValue="option" />Giao hàng tận nơi
                                         <label className="form-check-label" htmlFor="radio1" />
-                                        <span id="giaVanChuyen" style={{ marginLeft: '110px' }}>{SHIPPING_FEE} VND</span>
+                                        <span id="giaVanChuyen">{SHIPPING_FEE} VND</span>
                                     </div>
                                     <label htmlFor="comment" className="mt-4">Thanh Toán:</label>
                                     <div className="form-check mt-2 divBorder">
@@ -118,7 +145,7 @@ const Payment = () => {
                                         <i className="fa-regular fa-money-bill-1" style={{ color: '#0b92f9', marginLeft: '55px' }} />
                                     </div>
                                 </div>
-                                <div className="col-lg-4 col-md-4">
+                                <div className="col-lg-4 col-md-12">
                                     <div className="thanhToan">
                                         <table className="table">
                                             <thead>
@@ -166,7 +193,7 @@ const Payment = () => {
                                         </div>
                                         <div className="chiTietThanhToan1">
                                             <Link to={"/home"} style={{ cursor: 'pointer' }} className="mt-3 mx-3 anchor"><i className="fa-solid fa-chevron-left" />Quay lại trang chủ</Link>
-                                            <button id="btnDatHang" className="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#myModal">ĐẶT HÀNG</button>
+                                            <button onClick={(e) => { e.preventDefault() }} id="btnDatHang" className="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#myModal">ĐẶT HÀNG</button>
                                         </div>
 
                                         <div className="modal fade" id="myModal">

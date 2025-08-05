@@ -34,7 +34,7 @@ const Orders = () => {
                                     </li> */}
                                 </ul>
                                 {/* Tab panes */}
-                                <div className="tab-content">
+                                <div className="tableResponsive tab-content">
                                     <div id="home" className="container tab-pane active"><br />
                                         <table className="table text-center">
                                             <thead>

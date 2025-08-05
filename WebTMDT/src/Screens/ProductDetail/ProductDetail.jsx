@@ -11,7 +11,7 @@ const ProductDetail = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const formatPrice = (price) => {
-    return new Intl.NumberFormat('vi-VN').format(price);
+        return new Intl.NumberFormat('vi-VN').format(price);
     };
 
 
@@ -55,7 +55,7 @@ const ProductDetail = () => {
                 hideProgressBar: false,
                 theme: 'light',
             });
-        }else{
+        } else {
             navigate("/login");
         }
         //    navigate("/payment");
@@ -78,85 +78,86 @@ const ProductDetail = () => {
         <div>
             <div className="container-fluid">
                 <div className="container-md chiTietSP">
-                    <div className="col-md-5">
-                        <div className="hinh img-thumbnail">
-                            <img src={selectedImage} className="img-thumbnail" alt="" />
-                        </div>
-                        <div className="thumbnail-list">
-                            {(product.listImg || []).map((img, idx) => (
-                                <div
-                                    key={idx}
-                                    className={`thumbnail ${selectedImage === img ? 'active' : ''}`}
-                                    onClick={() => setSelectedImage(img)}
-                                >
-                                    <img src={img} alt={`Thumbnail ${idx}`} />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="text">
-                            <h2>{product.name}</h2>
-                            <div className="gia">
-                                <h5>Giá: </h5>
-                                <h6>{formatPrice(product.price)} VNĐ</h6>
+                    <div className='row'>
+                        <div className="col-lg-5 col-md-6 col-sm-12 col-12">
+                            <div className="hinh img-thumbnail">
+                                <img src={selectedImage} className="img-thumbnail" alt="" />
                             </div>
-                            <p>{product.description}</p>
-                            <div className="d-flex btnTangGiam">
-                                <button className="btnTangGiamSL" onClick={() => { (count <= 1) ? setCount((count) => count = 1) : setCount((count) => count - 1) }}>-</button>
-                                <input type="text" onChange={(e) => { setCount(e.target.value) }} value={count} style={{ width: '50px', border: '1px solid #00000024', textAlign: 'center', height: '30px' }} role="spinbutton" />
-                                <button className="btnTangGiamSL" onClick={() => { setCount(count + 1) }}>+</button>
-                            </div>
-                            <div className="nut" style={{ paddingTop: '10px' }}>
-
-                                <button onClick={handleAddToCart}>ĐẶT HÀNG</button>
-
-                            </div>
-                            <div className="chiaSe">
-                                <span className="tieuDe">Chia Sẻ: </span>
-                                <a >
-                                    <div className="iconMXH" style={{ padding: '8px 13px' }}>
-                                        <i className="fa-brands fa-facebook-f" style={{ color: '#3C5997' }} />
-                                    </div>
-                                </a>
-                                <a >
-                                    <div className="iconMXH">
-                                        <img src="/img/iconZalo.png" alt="" />
-                                    </div>
-                                </a>
-                                <a >
-                                    <div className="iconMXH">
-                                        <i className="fa-brands fa-twitter" style={{ color: '#1EA1F1' }} />
-                                    </div>
-                                </a>
-                                <a >
-                                    <div className="iconMXH">
-                                        <img src="/img/iconInstagram.png" alt="" style={{ height: '20px' }} />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-3">
-                        <div className="goiYMon">
-                            <div className="tieuDeGoiY">
-                                <h3>CÓ THỂ BẠN THÍCH</h3>
-                            </div>
-                            <div className="srollMenuSuggest">
-                                {productSuggest.map(item => (
-                                    <div key={item.id} className="sanPhamGoiY">
-                                        <div className="hinhAnh">
-                                            <img src={item.img} alt="" />
-                                        </div>
-                                        <div className="moTaSP">
-                                            <h4>{item.name}</h4>
-                                            <h5>{item.price}VNĐ</h5>
-                                            <button onClick={() => { navigate(`/products/${item.id}`) }}>Xem ngay</button>
-                                        </div>
+                            <div className="thumbnail-list">
+                                {(product.listImg || []).map((img, idx) => (
+                                    <div
+                                        key={idx}
+                                        className={`thumbnail ${selectedImage === img ? 'active' : ''}`}
+                                        onClick={() => setSelectedImage(img)}
+                                    >
+                                        <img src={img} alt={`Thumbnail ${idx}`} />
                                     </div>
                                 ))}
                             </div>
-                            {/* <div className="sanPhamGoiY">
+                        </div>
+                        <div className="col=lg-3 col-md-4 col-sm-12 col-12">
+                            <div className="text">
+                                <h2>{product.name}</h2>
+                                <div className="gia">
+                                    <h5>Giá: </h5>
+                                    <h6>{formatPrice(product.price)} VNĐ</h6>
+                                </div>
+                                <p>{product.description}</p>
+                                <div className="d-flex btnTangGiam">
+                                    <button className="btnTangGiamSL" onClick={() => { (count <= 1) ? setCount((count) => count = 1) : setCount((count) => count - 1) }}>-</button>
+                                    <input type="text" onChange={(e) => { setCount(e.target.value) }} value={count} style={{ width: '50px', border: '1px solid #00000024', textAlign: 'center', height: '30px' }} role="spinbutton" />
+                                    <button className="btnTangGiamSL" onClick={() => { setCount(count + 1) }}>+</button>
+                                </div>
+                                <div className="nut" style={{ paddingTop: '10px' }}>
+
+                                    <button onClick={handleAddToCart}>ĐẶT HÀNG</button>
+
+                                </div>
+                                <div className="chiaSe">
+                                    <span className="tieuDe">Chia Sẻ: </span>
+                                    <a >
+                                        <div className="iconMXH" style={{ padding: '8px 13px' }}>
+                                            <i className="fa-brands fa-facebook-f" style={{ color: '#3C5997' }} />
+                                        </div>
+                                    </a>
+                                    <a >
+                                        <div className="iconMXH">
+                                            <img src="/img/iconZalo.png" alt="" />
+                                        </div>
+                                    </a>
+                                    <a >
+                                        <div className="iconMXH">
+                                            <i className="fa-brands fa-twitter" style={{ color: '#1EA1F1' }} />
+                                        </div>
+                                    </a>
+                                    <a >
+                                        <div className="iconMXH">
+                                            <img src="/img/iconInstagram.png" alt="" style={{ height: '20px' }} />
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col=lg-4 col-md-3">
+                            <div className="goiYMon">
+                                <div className="tieuDeGoiY">
+                                    <h3>CÓ THỂ BẠN THÍCH</h3>
+                                </div>
+                                <div className="srollMenuSuggest">
+                                    {productSuggest.map(item => (
+                                        <div key={item.id} className="sanPhamGoiY">
+                                            <div className="hinhAnh">
+                                                <img src={item.img} alt="" />
+                                            </div>
+                                            <div className="moTaSP">
+                                                <h4>{item.name}</h4>
+                                                <h5>{item.price}VNĐ</h5>
+                                                <button onClick={() => { navigate(`/products/${item.id}`) }}>Xem ngay</button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                {/* <div className="sanPhamGoiY">
                                 <div className="hinhAnh">
                                     <img src="assets/img/MyYBo.jpg" alt="" />
                                 </div>
@@ -176,6 +177,7 @@ const ProductDetail = () => {
                                     <button>Đặt Món</button>
                                 </div>
                             </div> */}
+                            </div>
                         </div>
                     </div>
                 </div>

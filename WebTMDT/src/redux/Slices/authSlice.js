@@ -6,13 +6,15 @@ import { axiosClient } from './../../api/axiosClient';
 
 export const register = createAsyncThunk(
     "auth/register",
-    async ({ email, password }, { rejectWithValue }) => {
+    async ({ email, password, fullName }, { rejectWithValue }) => {
         try {
             console.log("email--re", email);
             console.log("password--re", password);
+            console.log("name--re", fullName);
             const response = await axiosClient.post("/api/signup", {
                 email,
                 password,
+                fullName,
             });
             console.log("response--re", response);
             return response.data;
@@ -36,9 +38,9 @@ export const login = createAsyncThunk(
                 password,
             });
             console.log("response", response);
-            const { accessToken , user } = response.data;
-            console.log("user" , user);
-            
+            const { accessToken, user } = response.data;
+            console.log("user", user);
+
             console.log("accesstoken_", accessToken);
 
 
@@ -58,7 +60,7 @@ export const login = createAsyncThunk(
     }
 )
 
-export const logout = createAsyncThunk("auth/logout" , async () => {
+export const logout = createAsyncThunk("auth/logout", async () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");
 })
@@ -72,7 +74,7 @@ const authSlices = createSlice({
         error: null,
     },
     reducers: {
-     
+
 
     },
     extraReducers: (builder) => {

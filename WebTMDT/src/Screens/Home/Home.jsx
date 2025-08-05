@@ -12,6 +12,9 @@ import FadeInLeft from '../../Components/EffectScroll/FadeInLeft';
 import FadeInRight from '../../Components/EffectScroll/FadeInRight';
 const Home = () => {
 
+    const user = useSelector((state) => state.user.user);
+    console.log("user", user);
+
     const productSale = useSelector((state) => state.productSale.productSale);
     const product = useSelector((state) => state.products.products);
     const loading = useSelector((state) => state.productSale.loading);
@@ -20,7 +23,7 @@ const Home = () => {
     const categories = useSelector((state) => state.categories.categories);
     const dispatch = useDispatch();
     const formatPrice = (price) => {
-    return new Intl.NumberFormat('vi-VN').format(price);
+        return new Intl.NumberFormat('vi-VN').format(price);
     };
     console.log(categories);
 
@@ -52,7 +55,7 @@ const Home = () => {
 
 
     if (loading) {
-        return <FullPageLoader/>
+        return <FullPageLoader />
     }
 
     if (error) {
@@ -63,51 +66,51 @@ const Home = () => {
         <div>
             <div>
 
-               <FadeInSection>
-                 <div className="banner">
-                    <img src="/img/banner.jpg" alt="" className="anhBanner" />
-                    <div className="container text-center bg_chinhSach">
-                        <div className="row">
-                            <div className="col-md-3 col-12">
-                                <section className="chinhSachCuaHang">
-                                    <div className="chiTietChinhSach ">
-                                        <i className="fa-solid fa-truck" />
-                                        <h4>Giao Hàng Toàn Quốc</h4>
-                                        <p>Miễn phí vận chuyển với các đơn hàng trị giá trên 2.000.000Đ</p>
-                                    </div>
-                                </section>
-                            </div>
-                            <div className="col-md-3 col-12">
-                                <section className="chinhSachCuaHang">
-                                    <div className="chiTietChinhSach ">
-                                        <i className="fa-solid fa-phone-volume" />
-                                        <h4>Hỗ Trợ Online 24/24</h4>
-                                        <p>Luôn hỗ trợ khách hàng 24/24 tất cả các ngày trong tuần</p>
-                                    </div>
-                                </section>
-                            </div>
-                            <div className="col-md-3 col-12">
-                                <section className="chinhSachCuaHang">
-                                    <div className="chiTietChinhSach ">
-                                        <i className="fa-solid fa-rotate" />
-                                        <h4>Đổi Hàng Dễ Dàng</h4>
-                                        <p>Miễn phí đổi trả trong vòng 30 ngày đầu tiên cho tất cả các mặt hàng</p>
-                                    </div>
-                                </section>
-                            </div>
-                            <div className="col-md-3 col-12">
-                                <section className="chinhSachCuaHang">
-                                    <div className="chiTietChinhSach ">
-                                        <i className="fa-solid fa-gift" />
-                                        <h4>Quà Tặng Hấp Dẫn</h4>
-                                        <p>Chương trình khuyễn mãi cực lớn và hấp dẫn hàng tháng</p>
-                                    </div>
-                                </section>
+                <FadeInSection>
+                    <div className="banner">
+                        <img src="/img/banner.jpg" alt="" className="anhBanner" />
+                        <div className="container text-center bg_chinhSach">
+                            <div className="row">
+                                <div className="col-md-3 col-12">
+                                    <section className="chinhSachCuaHang">
+                                        <div className="chiTietChinhSach ">
+                                            <i className="fa-solid fa-truck" />
+                                            <h4>Giao Hàng Toàn Quốc</h4>
+                                            <p>Miễn phí vận chuyển với các đơn hàng trị giá trên 2.000.000Đ</p>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div className="col-md-3 col-12">
+                                    <section className="chinhSachCuaHang">
+                                        <div className="chiTietChinhSach ">
+                                            <i className="fa-solid fa-phone-volume" />
+                                            <h4>Hỗ Trợ Online 24/24</h4>
+                                            <p>Luôn hỗ trợ khách hàng 24/24 tất cả các ngày trong tuần</p>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div className="col-md-3 col-12">
+                                    <section className="chinhSachCuaHang">
+                                        <div className="chiTietChinhSach ">
+                                            <i className="fa-solid fa-rotate" />
+                                            <h4>Đổi Hàng Dễ Dàng</h4>
+                                            <p>Miễn phí đổi trả trong vòng 30 ngày đầu tiên cho tất cả các mặt hàng</p>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div className="col-md-3 col-12">
+                                    <section className="chinhSachCuaHang">
+                                        <div className="chiTietChinhSach ">
+                                            <i className="fa-solid fa-gift" />
+                                            <h4>Quà Tặng Hấp Dẫn</h4>
+                                            <p>Chương trình khuyễn mãi cực lớn và hấp dẫn hàng tháng</p>
+                                        </div>
+                                    </section>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-               </FadeInSection>
+                </FadeInSection>
                 <section className="section container mr_top">
                     <div className="text-center">
                         <div className="tieuDe">
@@ -119,13 +122,13 @@ const Home = () => {
                             <div key={item.id} className='col-lg-1 categories'>
                                 <FadeInSection>
                                     <Link to={`/categories/${item.id}`}>
-                                    <div className="img">
-                                        <img src={item.img} alt="" />
-                                    </div>
-                                    <div className="nameCategories">
-                                        <p>{item.name}</p>
-                                    </div>
-                                </Link>
+                                        <div className="img">
+                                            <img src={item.img} alt="" />
+                                        </div>
+                                        <div className="nameCategories">
+                                            <p>{item.name}</p>
+                                        </div>
+                                    </Link>
                                 </FadeInSection>
                             </div>
                         ))}
@@ -143,18 +146,18 @@ const Home = () => {
                     <div className="row">
                         {newProducts.map(item => (
                             <div key={item.id} className="col-lg-3 col-md-4 col-sm-4 col-12">
-                               <FadeInSection>
-                                 <div className="sanPhamMoi">
-                                    <div className="overlay" />
-                                    <div className="iconMuaHang">
-                                        <i className="fa-regular fa-eye" />
+                                <FadeInSection>
+                                    <div className="sanPhamMoi">
+                                        <div className="overlay" />
+                                        <div className="iconMuaHang">
+                                            <i className="fa-regular fa-eye" />
+                                        </div>
+                                        <img src={item.img} alt="" />
+                                        <h5>{item.name}</h5>
+                                        <h6>NIKE</h6>
+                                        <p>{formatPrice(item.price)}₫</p>
                                     </div>
-                                    <img src={item.img} alt="" />
-                                    <h5>{item.name}</h5>
-                                    <h6>NIKE</h6>
-                                    <p>{formatPrice(item.price)}₫</p>
-                                </div>
-                               </FadeInSection>
+                                </FadeInSection>
                             </div>
                         ))}
 
@@ -177,19 +180,19 @@ const Home = () => {
                             <div key={item.id} className="col-lg-3 col-md-4 col-sm-4 col-12">
                                 <FadeInSection>
                                     <div className="sanPhamMoi">
-                                    <div className="overlay"></div>
-                                    <div className="iconMuaHang">
-                                        <i className="fa-regular fa-eye"></i>
-                                    </div>
-                                    <img src={item.img} alt="" />
-                                    <h5>{item.name}</h5>
-                                    <h6>{item.brand}</h6>
-                                    <div className="d-flex justify-content-between">
-                                        <h4 className="text-danger">{formatPrice(item.priceSale)}₫</h4>
-                                        <p className="text-black-50 text-decoration-line-through">{formatPrice(item.price)}₫</p>
+                                        <div className="overlay"></div>
+                                        <div className="iconMuaHang">
+                                            <i className="fa-regular fa-eye"></i>
+                                        </div>
+                                        <img src={item.img} alt="" />
+                                        <h5>{item.name}</h5>
+                                        <h6>{item.brand}</h6>
+                                        <div className="d-flex justify-content-between">
+                                            <h4 className="text-danger">{formatPrice(item.priceSale)}₫</h4>
+                                            <p className="text-black-50 text-decoration-line-through">{formatPrice(item.price)}₫</p>
 
+                                        </div>
                                     </div>
-                                </div>
                                 </FadeInSection>
                             </div>
                         ))}
@@ -209,48 +212,48 @@ const Home = () => {
                     </div>
                     <div className="row">
                         <div className="col-md-6 col-12">
-                           <FadeInLeft>
-                             <div className="phuKienTrai">
-                                <a className="image" href="#">
-                                    <img src="/img/phuKien1.jpg" alt="" className="image" />
-                                </a>
-                                <div className="noiDungPhuKien">
-                                    <h2>Khóa giày</h2>
-                                    <p>
-                                        Xem thêm
-                                        <i className="fa-solid fa-right-long" />
-                                    </p>
+                            <FadeInLeft>
+                                <div className="phuKienTrai">
+                                    <a className="image" href="#">
+                                        <img src="/img/phuKien1.jpg" alt="" className="image" />
+                                    </a>
+                                    <div className="noiDungPhuKien">
+                                        <h2>Khóa giày</h2>
+                                        <p>
+                                            Xem thêm
+                                            <i className="fa-solid fa-right-long" />
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                           </FadeInLeft>
+                            </FadeInLeft>
                         </div>
                         <div className="col-md-6 col-12">
-                           <FadeInRight>
-                             <div className="phuKienPhai">
-                                <a className="image" href="#">
-                                    <img src="/img/phuKien2.jpg" alt="" />
-                                </a>
-                                <div className="noiDungPhuKien">
-                                    <h2>Tất giày</h2>
-                                    <p>
-                                        Xem thêm
-                                        <i className="fa-solid fa-right-long" />
-                                    </p>
+                            <FadeInRight>
+                                <div className="phuKienPhai">
+                                    <a className="image" href="#">
+                                        <img src="/img/phuKien2.jpg" alt="" />
+                                    </a>
+                                    <div className="noiDungPhuKien">
+                                        <h2>Tất giày</h2>
+                                        <p>
+                                            Xem thêm
+                                            <i className="fa-solid fa-right-long" />
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="phuKienPhai">
-                                <a className="image" href="#">
-                                    <img src="/img/phuKien3.jpg" alt="" />
-                                </a>
-                                <div className="noiDungPhuKien">
-                                    <h2>Dây giày</h2>
-                                    <p>
-                                        Xem thêm
-                                        <i className="fa-solid fa-right-long" />
-                                    </p>
+                                <div className="phuKienPhai">
+                                    <a className="image" href="#">
+                                        <img src="/img/phuKien3.jpg" alt="" />
+                                    </a>
+                                    <div className="noiDungPhuKien">
+                                        <h2>Dây giày</h2>
+                                        <p>
+                                            Xem thêm
+                                            <i className="fa-solid fa-right-long" />
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                           </FadeInRight>
+                            </FadeInRight>
                         </div>
                     </div>
                 </section>
