@@ -293,7 +293,7 @@ const Header = () => {
                                     ))}
 
                                     <div className="buttonXemALL2">
-                                        <Link to={"/payment"} className="btnXemHet2">Xem Giỏ Hàng</Link>
+                                        <Link to={"/cart"} className="btnXemHet2">Xem Giỏ Hàng</Link>
                                     </div>
                                 </div>
                             </i>

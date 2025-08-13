@@ -22,31 +22,33 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Admin from './Screens/Admin/Admin'
 import AddProduct from './Components/AddProduct/AddProduct'
+import Cart from './Screens/Cart/Cart'
 function App() {
-  const [editPro , setEditPro] = useState("");
+  const [editPro, setEditPro] = useState("");
 
   return (
     <>
       <BrowserRouter>
         <ToastContainer position="top-right" autoClose={2000} />
         <Routes>
-          <Route path='/admin' element={<Admin setEditPro = {setEditPro}/>}></Route>
-          <Route path='/' element={<CommonPage/>}>
-              <Route path='/home' element={
-                // <ProtectedRoute>
-                  <Home/>
-                // </ProtectedRoute>
-                }></Route>
-              <Route path='/login' element={<Login/>}></Route>
-              <Route path='/register' element={<Register/>}></Route>
-              <Route path='/categories/:id' element={<ProductsList/>}></Route>
-              <Route path='/products/:id' element={<ProductDetail/>}></Route>
-              <Route path='/orders' element={<Orders/>}></Route>
-              <Route path='*' element={<NotFound/>}></Route>        
+          <Route path='/admin' element={<Admin setEditPro={setEditPro} />}></Route>
+          <Route path='/' element={<CommonPage />}>
+            <Route path='/home' element={
+              // <ProtectedRoute>
+              <Home />
+              // </ProtectedRoute>
+            }></Route>
+            <Route path='/login' element={<Login />}></Route>
+            <Route path='/register' element={<Register />}></Route>
+            <Route path='/categories/:id' element={<ProductsList />}></Route>
+            <Route path='/products/:id' element={<ProductDetail />}></Route>
+            <Route path='/orders' element={<Orders />}></Route>
+            <Route path='*' element={<NotFound />}></Route>
           </Route>
-           
-            <Route path='/addProduct' element={<AddProduct editPro = {editPro}/>}></Route>
-           <Route path='/payment' element={<Payment/>}></Route>
+
+          <Route path='/cart' element={<Cart />}></Route>
+          <Route path='/addProduct' element={<AddProduct editPro={editPro} />}></Route>
+          <Route path='/payment' element={<Payment />}></Route>
         </Routes>
       </BrowserRouter>
     </>

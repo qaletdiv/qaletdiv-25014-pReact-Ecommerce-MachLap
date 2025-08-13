@@ -87,13 +87,13 @@ let productSale = [
 
 let users = [
     {
-        email: "nana@example.com", password: "123", id: "1", cart: [], bill: []
+        email: "lapmach77@gmail.com", password: "123", id: "1", cart: [], bill: []
     },
     { email: "user2@example.com", password: "password456", id: "2", cart: [], bill: [] },
 ];
 let products = [
     {
-        id: "1", name: "Pin sạc dự phòng 30000mAh", price: 2000, img: "https://img.lazcdn.com/g/p/4c0d2aa0256029c99f2674e4a794b370.jpg_400x400q80.jpg_.avif", description: "Gồm có 1 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "01/08/2022", categoriesId: "3", brand: "Logitech"
+        id: "1", name: "Pin sạc dự phòng 30000mAh", price: 2000, img: "https://img.lazcdn.com/g/p/4c0d2aa0256029c99f2674e4a794b370.jpg_400x400q80.jpg_.avif", description: "Gồm có 1 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "01/08/2022", categoriesId: "3", brand: "Logitech", checked: false
         , listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -102,7 +102,7 @@ let products = [
         ]
     },
     {
-        id: "2", name: "Kệ quần áo thời trang", price: 5000, img: "https://img.lazcdn.com/g/p/7567559cd01a79c848cc3f196ac85132.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "05/06/2025", categoriesId: "3", brand: "Louis Vuiton"
+        id: "2", name: "Kệ quần áo thời trang", price: 5000, img: "https://img.lazcdn.com/g/p/7567559cd01a79c848cc3f196ac85132.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "05/06/2025", categoriesId: "3", brand: "Louis Vuiton", checked: false
         , listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -111,7 +111,7 @@ let products = [
         ]
     },
     {
-        id: "3", name: "Nước hoa lưu hương thơm mát", price: 400, img: "https://img.lazcdn.com/g/p/d92a0bcb6deb64fcf8cd98049576a5d0.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "06/06/2025", categoriesId: "7", brand: "Channel"
+        id: "3", name: "Nước hoa lưu hương thơm mát", price: 400, img: "https://img.lazcdn.com/g/p/d92a0bcb6deb64fcf8cd98049576a5d0.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "06/06/2025", categoriesId: "7", brand: "Channel", checked: false
         , listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -120,7 +120,7 @@ let products = [
         ]
     },
     {
-        id: "4", name: "Vòng tay nữ lọng lẫy kiêu sa", price: 6000, img: "https://img.lazcdn.com/g/p/fdd739b7701fb3161990323dc343d300.png_400x400q80.png_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "01/06/2025", categoriesId: "6", brand: "Channel",
+        id: "4", name: "Vòng tay nữ lọng lẫy kiêu sa", price: 6000, img: "https://img.lazcdn.com/g/p/fdd739b7701fb3161990323dc343d300.png_400x400q80.png_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "01/06/2025", categoriesId: "6", brand: "Channel", checked: false,
         listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -130,7 +130,7 @@ let products = [
         listSize: [30, 31, 32, 33, 34]
     },
     {
-        id: "5", name: "Thùng sữa Vinamilk 48 hộp", price: 1500, img: "https://img.lazcdn.com/g/p/6b85bd8958903f2d9c035d032175d23b.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "07/06/2025", categoriesId: "8", brand: "Vinamilk"
+        id: "5", name: "Thùng sữa Vinamilk 48 hộp", price: 1500, img: "https://img.lazcdn.com/g/p/6b85bd8958903f2d9c035d032175d23b.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "07/06/2025", categoriesId: "8", brand: "Vinamilk", checked: false
         , listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -139,7 +139,7 @@ let products = [
         ]
     },
     {
-        id: "6", name: "Giày thể thao nam thoải mái sang trọng", price: 4000000, img: "https://img.lazcdn.com/g/p/95a203d1ff6f3b1b42e994ebc9e1f34d.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: formatDay(), categoriesId: "5", brand: "Adidas"
+        id: "6", name: "Giày thể thao nam thoải mái sang trọng", price: 4000000, img: "https://img.lazcdn.com/g/p/95a203d1ff6f3b1b42e994ebc9e1f34d.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: formatDay(), categoriesId: "5", brand: "Adidas", checked: false
         , listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -149,7 +149,7 @@ let products = [
         listSize: [30, 31, 32, 33, 34, 35, 36]
     },
     {
-        id: "7", name: "Thùng sữa Vinamilk 48 hộp", price: 1500000, img: "https://img.lazcdn.com/g/p/6b85bd8958903f2d9c035d032175d23b.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "07/06/2025", categoriesId: "8", brand: "Vinamilk"
+        id: "7", name: "Thùng sữa Vinamilk 48 hộp", price: 1500000, img: "https://img.lazcdn.com/g/p/6b85bd8958903f2d9c035d032175d23b.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: "07/06/2025", categoriesId: "8", brand: "Vinamilk", checked: false
         , listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -158,7 +158,7 @@ let products = [
         ]
     },
     {
-        id: "8", name: "Giày thể thao nữ thoải mái sang trọng", price: 4000, img: "https://img.lazcdn.com/g/p/95a203d1ff6f3b1b42e994ebc9e1f34d.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: formatDay(), categoriesId: "5", brand: "Adidas"
+        id: "8", name: "Giày thể thao nữ thoải mái sang trọng", price: 4000, img: "https://img.lazcdn.com/g/p/95a203d1ff6f3b1b42e994ebc9e1f34d.jpg_400x400q80.jpg_.avif", description: "Gồm có 2 miếng gà được chế biến sẵn ăn liền không cần chế biến lại", createdAt: formatDay(), categoriesId: "5", brand: "Adidas", checked: false
         , listImg: [
             "https://img.lazcdn.com/g/p/03e761230d42b5e07da524ed704c46e6.jpg_720x720q80.jpg_.webp",
             "https://img.lazcdn.com/g/p/047f364c149c86c7ae7cd81fd2d82ccb.jpg_120x120q80.jpg_.webp",
@@ -200,6 +200,7 @@ app.post('/api/signup', (req, res) => {
         fullName,
         id: Date.now().toString(),
         cart: [],
+        confirmCart: [],
         bill: []
     };
     users.push(newUser);
@@ -270,6 +271,7 @@ app.post('/api/products', authenticateJWT, (req, res) => {
         categoriesId,
         description,
         brand,
+        checked: false,
         createdAt: formatDay(),
     };
     products.push(newproduct);
@@ -379,9 +381,9 @@ app.delete("/api/cart/:id", authenticateJWT, (req, res) => {
     res.status(204).send();
 });
 
-app.patch('/api/cart/:id', authenticateJWT, (req, res) => {
-    const { quantity } = req.body;
-    const id = req.params.id;
+app.patch('/api/updateCartQuantity', authenticateJWT, (req, res) => {
+    const { id, quantity } = req.body;
+
     if (!Number.isInteger(quantity) || quantity <= 0) {
         return res.status(400).json({ message: 'Invalid quantity' });
     }
@@ -391,15 +393,35 @@ app.patch('/api/cart/:id', authenticateJWT, (req, res) => {
         return res.status(404).json({ message: 'User not found' });
     }
 
+    user.cart = user.cart.map(item =>
+        item.id == id ? { ...item, quantity } : item
+    );
 
-    const cartIndex = user.cart.findIndex((product) => product.id === id);
-    if (cartIndex > -1) {
-        user.cart[cartIndex] = { ...user.cart[cartIndex], ...req.body };
-        res.json(user.cart[cartIndex]);
-    } else {
-        res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
-    }
+    res.json(user.cart);
 });
+// chon 1 hoặc nhiều sp cùng lúc
+app.patch('/api/toggleCart', authenticateJWT, (req, res) => {
+    const { id, checked } = req.body; // id có thể null/undefined
+    const user = users.find(u => u.email === req.user.email);
+
+    if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (id) {
+        // Toggle 1 sản phẩm
+        user.cart = user.cart.map(item =>
+            item.id == id ? { ...item, checked } : item
+        );
+    } else {
+        // Toggle tất cả sản phẩm
+        user.cart = user.cart.map(item => ({ ...item, checked }));
+    }
+
+    res.json(user.cart);
+});
+
+
 
 // API Đơn hàng
 app.get('/api/payment', authenticateJWT, (req, res) => {
@@ -433,10 +455,11 @@ app.post('/api/payment', authenticateJWT, (req, res) => {
         createdAt: formatDay()
     }
     user.bill.unshift(newBill);
-    user.cart = [];
+    user.cart = user.cart.filter(item => item.checked === false);
 
     return res.status(201).json(newBill);
 });
+
 
 
 

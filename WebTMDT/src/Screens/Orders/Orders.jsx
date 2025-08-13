@@ -1,9 +1,14 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import "./Orders.css"
+import { fetchBill } from '../../redux/Slices/cartSLice'
 const Orders = () => {
     const bill = useSelector((state) => state.cart.bill);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchBill());
+    }, [dispatch]);
 
     return (
         <div>

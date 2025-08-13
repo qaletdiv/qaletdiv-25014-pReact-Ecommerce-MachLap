@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./Payment.css"
 import { useDispatch, useSelector } from 'react-redux';
-import { addBill, deleteCart, fetchCart, updateCart } from '../../redux/Slices/cartSLice';
+import { addBill, deleteCart, fetchCart, fetchConfirmCart } from '../../redux/Slices/cartSLice';
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -47,16 +47,18 @@ const Payment = () => {
 
     useEffect(() => {
         dispatch(fetchCart());
+        dispatch(fetchConfirmCart())
     }, [dispatch]);
 
+    // const cart = useSelector((state) => state.cart.cart);
     const cart = useSelector((state) => state.cart.cart);
+    const confirmCart = useSelector((state) => state.cart.confirmCart);
     console.log("cart", cart);
 
-    let provisionalAmount = 0;
-    if (cart.length > 0) {
-        provisionalAmount = cart.reduce((total, cur) => total + cur.price * cur.quantity, 0);
-    }
-    console.log("sum", provisionalAmount);
+
+    const total = cart
+        .filter((item) => item.checked)
+        .reduce((sum, item) => sum + item.price * item.quantity, 0);
 
 
     const handleUpdate = (item, quantity) => {
@@ -82,10 +84,12 @@ const Payment = () => {
         //     return;
         // }
         if (validate()) {
-            dispatch(addBill({ name: data.name, phone: data.phone, address: data.address, note: data.note, cart: cart, totalPrice: payByWhat ? provisionalAmount + SHIPPING_FEE : 0 }))
+            dispatch(addBill({ name: data.name, phone: data.phone, address: data.address, note: data.note, cart: filterCart, totalPrice: payByWhat ? total + SHIPPING_FEE : 0 }))
             navigate("/orders");
         }
     }
+
+    const filterCart = cart.filter(item => item.checked === true);
 
     return (
         <div>
@@ -157,19 +161,17 @@ const Payment = () => {
                                             </thead>
                                             <tbody id="parentThanhToan">
                                                 {
-                                                    Array.isArray(cart) && cart.map(item => (
+                                                    Array.isArray(filterCart) && filterCart.map(item => (
                                                         <tr key={item.id} className="chiTietThanhToan">
                                                             <td><img src={item.img} alt="" /></td>
                                                             <td><div>
                                                                 <span className="mrLeft small-heading">{item.name}</span>
                                                                 <div className="d-flex mt-2">
-                                                                    <button onClick={() => handleUpdate(item, item.quantity - 1)} className="btnTangGiamSL">-</button>
-                                                                    <input type="text" onChange={(e) => handleUpdate(item, e.target.value)} value={item.quantity} style={{ width: '50px', border: '1px solid #00000024', textAlign: 'center', height: '22px' }} role="spinbutton" />
-                                                                    <button onClick={() => handleUpdate(item, item.quantity + 1)} className="btnTangGiamSL">+</button>
+                                                                    <span style={{ padding: '2px 10px', border: '1px solid #00000024', textAlign: 'center', height: '26px' }} >Số Lượng: {item.quantity}</span>
                                                                 </div>
                                                             </div></td>
-                                                            <td><span>{item.price}VNĐ</span></td>
-                                                            <td> <i onClick={() => handleDeleteCart(item.id)} className="fa-solid fa-circle-xmark"></i></td>
+                                                            <td><span>{item.price.toLocaleString()}VNĐ</span></td>
+
                                                         </tr>
                                                     ))
                                                 }
@@ -180,16 +182,16 @@ const Payment = () => {
                                         <hr />
                                         <div className="chiTietThanhToan1" style={{ marginLeft: '20px' }}>
                                             <p>Tạm tính</p>
-                                            <p id="giaTamTinh">{payByWhat ? provisionalAmount : "0"} VNĐ</p>
+                                            <p id="giaTamTinh">{payByWhat ? total.toLocaleString() : "0"} VNĐ</p>
                                         </div>
                                         <div className="chiTietThanhToan1" style={{ marginLeft: '20px' }}>
                                             <p>Phí vận chuyển</p>
-                                            <p>{payByWhat ? SHIPPING_FEE : 0} VNĐ</p>
+                                            <p>{payByWhat ? SHIPPING_FEE.toLocaleString() : 0} VNĐ</p>
                                         </div>
                                         <hr />
                                         <div className="chiTietThanhToan1" style={{ marginLeft: '20px' }}>
                                             <h4>Tổng cộng:</h4>
-                                            <p id="giaTong">{payByWhat ? provisionalAmount + SHIPPING_FEE : 0} VNĐ</p>
+                                            <p id="giaTong">{payByWhat ? (total + SHIPPING_FEE).toLocaleString() : 0} VNĐ</p>
                                         </div>
                                         <div className="chiTietThanhToan1">
                                             <Link to={"/home"} style={{ cursor: 'pointer' }} className="mt-3 mx-3 anchor"><i className="fa-solid fa-chevron-left" />Quay lại trang chủ</Link>
@@ -222,7 +224,7 @@ const Payment = () => {
                                                             </thead>
                                                             <tbody>
                                                                 {
-                                                                    Array.isArray(cart) && cart.map(item => (
+                                                                    Array.isArray(filterCart) && filterCart.map(item => (
                                                                         <tr className='chiTietThanhToan'>
                                                                             <td><img src={item.img} alt="" /></td>
                                                                             <td>{item.name}</td>
@@ -234,9 +236,9 @@ const Payment = () => {
                                                         </table>
                                                         <div className="paymentConfirm mt-5">
                                                             <div>
-                                                                <h5>Giá tính tạm: <b className='text-danger'>{payByWhat ? provisionalAmount : "0"} VNĐ</b> </h5>
-                                                                <h5>Phí vận chuyển: <b className='text-danger'>{payByWhat ? SHIPPING_FEE : "0"} VNĐ</b> </h5>
-                                                                <h5>Tổng tiền cần thanh toán:  <b className='text-danger'>{payByWhat ? provisionalAmount + SHIPPING_FEE : "0"} VNĐ</b>  </h5>
+                                                                <h5>Giá tính tạm: <b className='text-danger'>{payByWhat ? total.toLocaleString() : "0"} VNĐ</b> </h5>
+                                                                <h5>Phí vận chuyển: <b className='text-danger'>{payByWhat ? SHIPPING_FEE.toLocaleString() : "0"} VNĐ</b> </h5>
+                                                                <h5>Tổng tiền cần thanh toán:  <b className='text-danger'>{payByWhat ? (total + SHIPPING_FEE).toLocaleString() : "0"} VNĐ</b>  </h5>
                                                             </div>
                                                             <div className='mt-4'>
                                                                 <button id="btnDatHang" onClick={handlePayment} data-bs-dismiss="modal" className="btn btn-primary mt-3">XÁC NHẬN THANH TOÁN</button>
