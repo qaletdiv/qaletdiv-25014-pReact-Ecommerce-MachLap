@@ -3,7 +3,7 @@ import { axiosClient } from "../../api/axiosClient";
 
 
 export const fetchNews = createAsyncThunk("news/fetchNews", async () => {
-    const response = await axiosClient.get("/api/news");
+    const response = await axiosClient.get("https://backend-web-tmdt-3.onrender.com/api/news");
     return response.data;
 })
 

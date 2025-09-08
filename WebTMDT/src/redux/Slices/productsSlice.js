@@ -4,31 +4,31 @@ import { axiosClient } from "../../api/axiosClient";
 
 
 export const fetchProduct = createAsyncThunk("products/fetchProduct", async () => {
-    const response = await axiosClient.get("/api/products");
+    const response = await axiosClient.get("https://backend-web-tmdt-3.onrender.com/api/products");
     return response.data;
 })
 
 export const addProduct = createAsyncThunk("products/addProduct", async ({ name, img, listImg, categoriesId, description, price, brand }) => {
-    const reponse = await axiosClient.post("/api/products", { name, img, listImg, categoriesId, description, price, brand });
+    const reponse = await axiosClient.post("https://backend-web-tmdt-3.onrender.com/api/products", { name, img, listImg, categoriesId, description, price, brand });
     return reponse.data;
 })
 
 export const deleteProduct = createAsyncThunk("products/deleteProduct", async (id) => {
-    await axiosClient.delete(`/api/products/${id}`);
+    await axiosClient.delete(`https://backend-web-tmdt-3.onrender.com/api/products/${id}`);
     return id;
 })
 
-export const updateProduct = createAsyncThunk("products/updateProduct", async ({ id, name, img , listImg, categoriesId, description, price, brand  }) => {
+export const updateProduct = createAsyncThunk("products/updateProduct", async ({ id, name, img, listImg, categoriesId, description, price, brand }) => {
 
 
-    const updateProduct = { name, img , listImg, categoriesId, description, price, brand };
-    const response = await axiosClient.patch(`/api/products/${id}`, updateProduct)
+    const updateProduct = { name, img, listImg, categoriesId, description, price, brand };
+    const response = await axiosClient.patch(`https://backend-web-tmdt-3.onrender.com/api/products/${id}`, updateProduct)
 
     return response.data;
 })
 
 export const fetchProductById = createAsyncThunk('products/fetchProductById', async (id) => {
-    const response = await axiosClient.get(`/api/products/${id}`);
+    const response = await axiosClient.get(`https://backend-web-tmdt-3.onrender.com/api/products/${id}`);
     return response.data;
 })
 

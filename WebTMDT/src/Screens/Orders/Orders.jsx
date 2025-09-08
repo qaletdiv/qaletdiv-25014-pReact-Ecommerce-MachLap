@@ -60,7 +60,7 @@ const Orders = () => {
                                                                 <img src={sp.img} alt="" />
                                                             ))}</td>
                                                             <td>{item.createdAt}</td>
-                                                            <td>{item.totalPrice}</td>
+                                                            <td>{(item.totalPrice).toLocaleString()}đ</td>
                                                             <td><span className='status'>Đang vận chuyển</span></td>
                                                         </tr>
                                                     ))

@@ -7,23 +7,10 @@ import { Link, useNavigate } from 'react-router-dom';
 const Cart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [errors, setErrors] = useState({});
     const SHIPPING_FEE = 5000;
-    const [count, setCount] = useState(1);
-    const [shipCost, setShipCost] = useState(false);
-    const [isChecked, setIsChecked] = useState(false);
-    const [payByWhat, setPayByWhat] = useState(false);
 
-    const refCart = useRef(false);
 
-    const handleChange = (e) => {
-        let { name, value } = e.target;
 
-        setData(pref => ({
-            ...pref,
-            [name]: value
-        }))
-    }
 
     useEffect(() => {
         dispatch(fetchCart());
@@ -68,6 +55,8 @@ const Cart = () => {
 
     const allChecked = cart.length > 0 && cart.every(item => item.checked);
 
+
+
     // Toggle tất cả
     const handleToggleAll = () => {
         dispatch(toggleChecked({ id: null, checked: !allChecked }));
@@ -88,6 +77,9 @@ const Cart = () => {
         }
     };
 
+    const handleUpdateQuantity = (id, currentQuantity) => {
+        dispatch(updateCartQuantity({ id, quantity: currentQuantity }));
+    }
 
     const total = cart
         .filter((item) => item.checked)
@@ -150,7 +142,7 @@ const Cart = () => {
                                                                     // handleUpdate(item, item.quantity - 1)
                                                                     handleDecrease(item.id, item.quantity);
                                                                 }} className="btnTangGiamSL">-</button>
-                                                                <span value={item.quantity} style={{ width: '50px', border: '1px solid #00000024', textAlign: 'center', height: '22px' }}>{item.quantity}</span>
+                                                                <span style={{ width: '50px', border: '1px solid #00000024', textAlign: 'center', height: '22px' }}>{item.quantity}</span>
                                                                 <button onClick={(e) => {
                                                                     e.preventDefault();
                                                                     // handleUpdate(item, item.quantity + 1)

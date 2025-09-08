@@ -4,18 +4,18 @@ import { axiosClient } from "../../api/axiosClient";
 
 
 export const fetchProductSale = createAsyncThunk("productSale/fetchProductSale", async () => {
-    const response = await axiosClient.get("/api/productSale");
+    const response = await axiosClient.get("https://backend-web-tmdt-3.onrender.com/api/productSale");
     return response.data;
 })
 
 export const fetchProductById = createAsyncThunk('productSale/fetchProductById', async (id) => {
-    const response = await axiosClient.get(`/api/productSale/${id}`);
+    const response = await axiosClient.get(`https://backend-web-tmdt-3.onrender.com/api/productSale/${id}`);
     return response.data;
 })
 
 
 
-const initialState = { productSale: [], loading: false, error: null , currentProductSale: null};
+const initialState = { productSale: [], loading: false, error: null, currentProductSale: null };
 
 const productSaleSlice = createSlice({
     name: "productSale",

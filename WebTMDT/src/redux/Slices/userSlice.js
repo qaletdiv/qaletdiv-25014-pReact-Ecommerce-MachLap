@@ -3,7 +3,7 @@ import { axiosClient } from "../../api/axiosClient";
 
 
 export const fetchUserNow = createAsyncThunk("user/fetchUsers", async () => {
-    const response = await axiosClient.get("/api/me");
+    const response = await axiosClient.get("https://backend-web-tmdt-3.onrender.com/api/me");
     console.log("---", response.data);
 
     return response.data;

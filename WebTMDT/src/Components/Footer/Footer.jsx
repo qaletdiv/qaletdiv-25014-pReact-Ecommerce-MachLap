@@ -8,8 +8,8 @@ const Footer = () => {
                 <div className="row noiDung">
                     <div className="col-lg-4 col-md-12 col-sm-12 col-12 phan1">
                         <div className="d-flex">
-                            <img src="/img/logo.png" alt="" />
-                            <h2>URBANSHOES</h2>
+                            <img src="/img/logo7.png" style={{ width: "180px" }} alt="" />
+                            {/* <h2>CHICKEN COOK</h2> */}
                         </div>
                         <div className="noiDungChiTiet">
                             <i className="fa-solid fa-location-dot m-2" />
@@ -61,7 +61,7 @@ const Footer = () => {
                     </div>
                     <hr />
                     <div className="banQuyen text-center">
-                        <h5>Copyright © 2023 by URBANSHOES</h5>
+                        <h5>Copyright © 2023 by CHICKENCOOK</h5>
                     </div>
                 </div>
             </div>

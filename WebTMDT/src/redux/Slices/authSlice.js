@@ -11,7 +11,7 @@ export const register = createAsyncThunk(
             console.log("email--re", email);
             console.log("password--re", password);
             console.log("name--re", fullName);
-            const response = await axiosClient.post("/api/signup", {
+            const response = await axiosClient.post("https://backend-web-tmdt-3.onrender.com/api/signup", {
                 email,
                 password,
                 fullName,
@@ -33,7 +33,7 @@ export const login = createAsyncThunk(
     "auth/login",
     async ({ email, password }, { rejectWithValue }) => {
         try {
-            const response = await axiosClient.post("/api/login", {
+            const response = await axiosClient.post("https://backend-web-tmdt-3.onrender.com/api/login", {
                 email,
                 password,
             });

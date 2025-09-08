@@ -207,7 +207,7 @@ const Header = () => {
                                 </li>
                                 <li className="navbar-list__item">
                                     <i className="fa-regular fa-id-badge" style={{ backgroundColor: 'transparent', color: 'white', fontSize: '12px', lineHeight: '5px' }} />
-                                    <a href="GioiThieu.html" className="item-link">Giới Thiệu</a>
+                                    <Link to={"/orders"} className="item-link">Đơn Hàng</Link>
                                 </li>
                                 {(!accessToken) &&
                                     <>
@@ -235,9 +235,9 @@ const Header = () => {
                     </div>
                     <div className="PhanTimKiem">
                         <div className="logo">
-                            <a href="index.html">
+                            <Link to={"/"}>
                                 <img src="/img/logo7.png" alt="" />
-                            </a>
+                            </Link>
                         </div>
                         <div className="timKiem" ref={wrapperRef}>
                             <div className="divTimKiem">
@@ -348,7 +348,7 @@ const Header = () => {
                                     <Link className="nav-link" to={"/categories/1"}>Sản phẩm</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to={"/"}>Giới Thiệu</Link>
+                                    <Link className="nav-link" to={"/orders"}>Đơn Hàng</Link>
                                 </li>
                             </ul>
                         </div>

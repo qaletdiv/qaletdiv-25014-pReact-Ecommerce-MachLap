@@ -3,12 +3,12 @@ import { axiosClient } from "../../api/axiosClient";
 
 
 export const fetchCategories = createAsyncThunk("categories/fetchCategories", async () => {
-    const response = await axiosClient.get("/api/categories");
+    const response = await axiosClient.get("https://backend-web-tmdt-3.onrender.com/api/categories");
     return response.data;
 })
 
 export const fetchCategoriesById = createAsyncThunk('products/fetchCategoriesById', async (id) => {
-    const response = await axiosClient.get(`/api/categories/${id}`);
+    const response = await axiosClient.get(`https://backend-web-tmdt-3.onrender.com/api/categories/${id}`);
     return response.data;
 })
 
@@ -16,18 +16,18 @@ export const fetchCategoriesById = createAsyncThunk('products/fetchCategoriesByI
 
 
 
-const initialState = { categories: [], loading: false, error: null, currentCaterogy: null , filter: ""};
+const initialState = { categories: [], loading: false, error: null, currentCaterogy: null, filter: "" };
 
 const categoriesSlice = createSlice({
     name: "categories",
     initialState,
     reducers: {
-         setLowToHighPrice: (state, action) => {
+        setLowToHighPrice: (state, action) => {
             state.currentCaterogy.productList = action.payload
 
         },
         setHighToLowPrice: (state, action) => {
-            state.currentCaterogy.productList = action.payload  
+            state.currentCaterogy.productList = action.payload
 
         },
         setFilter: (state, action) => {
@@ -65,5 +65,5 @@ const categoriesSlice = createSlice({
 
     }
 });
-export const { setLowToHighPrice , setHighToLowPrice , setFilter} = categoriesSlice.actions
+export const { setLowToHighPrice, setHighToLowPrice, setFilter } = categoriesSlice.actions
 export default categoriesSlice.reducer;

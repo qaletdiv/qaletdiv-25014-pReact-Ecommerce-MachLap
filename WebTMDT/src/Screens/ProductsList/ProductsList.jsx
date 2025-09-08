@@ -35,6 +35,7 @@ const ProductsList = () => {
     const filterProducts = () => {
         let filtered = [...category?.productList || []];
 
+
         if (filters.category) {
             filtered = filtered.filter(p => p.category === filters.category);
         }
@@ -54,7 +55,9 @@ const ProductsList = () => {
         if (filters.sort === "asc") filtered.sort((a, b) => a.price - b.price);
         if (filters.sort === "desc") filtered.sort((a, b) => b.price - a.price);
 
+
         return filtered;
+
     };
 
     const filteredProducts = filterProducts();
@@ -85,6 +88,7 @@ const ProductsList = () => {
         navigate(`/categories/${id}`);
     }
 
+    console.log(id, "///");
 
     useEffect(() => {
         dispatch(fetchCategoriesById(id));
@@ -92,6 +96,8 @@ const ProductsList = () => {
         dispatch(fetchProduct());
         dispatch(fetchCart());
     }, [dispatch, id])
+
+
 
     if (!category) {
         return (
@@ -156,7 +162,7 @@ const ProductsList = () => {
                                 <label><b>Danh mục</b></label><br />
                                 {categories.map(item => (
                                     <div key={item.id}>
-                                        <input type="radio" name="phanLoai" onClick={() => handleCaterogies(item.id)} />{item.name}
+                                        <input type="radio" name="phanLoai" defaultChecked={item.id === id} onClick={() => handleCaterogies(item.id)} />{item.name}
                                     </div>
                                 ))}
 

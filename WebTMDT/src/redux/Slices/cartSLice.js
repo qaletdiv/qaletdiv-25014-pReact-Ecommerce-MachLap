@@ -4,18 +4,18 @@ import { axiosClient } from "../../api/axiosClient";
 
 
 export const fetchCart = createAsyncThunk("cart/fetchProduct", async () => {
-    const response = await axiosClient.get("/api/cart");
+    const response = await axiosClient.get("https://backend-web-tmdt-3.onrender.com/api/cart");
     return response.data;
 })
 
 export const addCart = createAsyncThunk("cart/addCart", async ({ idProduct, quantity }) => {
-    const reponse = await axiosClient.post("/api/cart", { idProduct, quantity });
+    const reponse = await axiosClient.post("https://backend-web-tmdt-3.onrender.com/api/cart", { idProduct, quantity });
     return reponse.data;
 
 })
 
 export const deleteCart = createAsyncThunk("products/deleteCart", async (id) => {
-    await axiosClient.delete(`/api/cart/${id}`);
+    await axiosClient.delete(`https://backend-web-tmdt-3.onrender.com/api/cart/${id}`);
     return id;
 })
 
@@ -23,7 +23,7 @@ export const updateCartQuantity = createAsyncThunk("products/updateCartQuantity"
 
 
     const updateProduct = { id, quantity };
-    const response = await axiosClient.patch(`/api/updateCartQuantity`, updateProduct)
+    const response = await axiosClient.patch(`https://backend-web-tmdt-3.onrender.com/api/updateCartQuantity`, updateProduct)
 
     return response.data;
 })
@@ -31,7 +31,7 @@ export const updateCartQuantity = createAsyncThunk("products/updateCartQuantity"
 export const toggleChecked = createAsyncThunk("cart/toggleItemChecked", async ({ id, checked }) => {
     const updateCart = { id, checked };
 
-    const response = await axiosClient.patch(`/api/toggleCart`, updateCart)
+    const response = await axiosClient.patch(`https://backend-web-tmdt-3.onrender.com/api/toggleCart`, updateCart)
 
     return response.data;
 })
@@ -41,24 +41,24 @@ export const toggleChecked = createAsyncThunk("cart/toggleItemChecked", async ({
 
 
 export const fetchBill = createAsyncThunk("bill/fetchBill", async () => {
-    const response = await axiosClient.get("/api/payment");
+    const response = await axiosClient.get("https://backend-web-tmdt-3.onrender.com/api/payment");
     return response.data;
 })
 
 export const addBill = createAsyncThunk("bill/addBill", async ({ name, phone, address, note, cart, totalPrice }) => {
-    const reponse = await axiosClient.post("/api/payment", { name, phone, address, note, cart, totalPrice });
+    const reponse = await axiosClient.post("https://backend-web-tmdt-3.onrender.com/api/payment", { name, phone, address, note, cart, totalPrice });
     return reponse.data;
 
 })
 
 // confirm cart
 export const fetchConfirmCart = createAsyncThunk("bill/fetchConfirmCart", async () => {
-    const response = await axiosClient.get("/api/confirmCart");
+    const response = await axiosClient.get("https://backend-web-tmdt-3.onrender.com/api/confirmCart");
     return response.data;
 })
 
 export const addConfirmCart = createAsyncThunk("bill/addConfirmCart", async ({ cart, totalPrice }) => {
-    const reponse = await axiosClient.post("/api/confirmCart", { cart, totalPrice });
+    const reponse = await axiosClient.post("https://backend-web-tmdt-3.onrender.com/api/confirmCart", { cart, totalPrice });
     return reponse.data;
 
 })
